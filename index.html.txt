@@ -1,0 +1,163 @@
+!DOCTYPE html
+html lang=he dir=rtl
+head
+    meta charset=UTF-8
+    meta name=viewport content=width=device-width, initial-scale=1.0
+    titleNinaBeauty  השיטה לתוצאות נראות לעיןtitle
+    script src=httpscdn.tailwindcss.comscript
+    link href=httpsfonts.googleapis.comcss2family=Assistantwght@300;400;600;700;800&family=Playfair+Displayital,wght@0,700;1,700&display=swap rel=stylesheet
+    style
+        root {
+            --primary-gold #D4AF37;
+            --dusty-pink #E5B5B5;
+            --charcoal-gray #374151;
+            --light-gray #F3F4F6;
+            --soft-rose #FFF5F5;
+        }
+        body {
+            font-family 'Assistant', sans-serif;
+            color var(--charcoal-gray);
+            background-color white;
+        }
+        h1, h2, .serif {
+            font-family 'Playfair Display', serif;
+        }
+        .hero-section {
+             שימוש בתמונה איכותית מהרשת כדי שתוכלי לראות את העיצוב מיד 
+            background linear-gradient(rgba(255, 245, 245, 0.8), rgba(255, 245, 245, 0.8)), 
+                        url('httpsimages.unsplash.comphoto-1560750588-73207b1ef5b8auto=format&fit=crop&q=80&w=2070');
+            background-size cover;
+            background-position center;
+        }
+        .cta-button {
+            transition all 0.3s ease;
+            background-color var(--charcoal-gray);
+            box-shadow 0 4px 15px rgba(55, 65, 81, 0.2);
+        }
+        .cta-buttonhover {
+            transform translateY(-2px);
+            background-color var(--primary-gold);
+            box-shadow 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+        .section-padding {
+            padding 80px 20px;
+        }
+        .logo-placeholder {
+            font-family 'Playfair Display', serif;
+            font-size 2rem;
+            font-weight bold;
+            color var(--charcoal-gray);
+            letter-spacing 2px;
+        }
+        .ba-img {
+            border-radius 12px;
+            box-shadow 0 4px 15px rgba(0,0,0,0.1);
+            width 100%;
+            height 300px;
+            object-fit cover;
+        }
+    style
+head
+body
+
+    !-- Navigation  Logo --
+    nav class=py-6 px-10 flex justify-center bg-white shadow-sm sticky top-0 z-50
+        div class=logo-placeholderNINAspan class=text-[--dusty-pink]BEAUTYspandiv
+    nav
+
+    !-- 1. Hero Section --
+    header class=hero-section min-h-[85vh] flex items-center justify-center text-center section-padding
+        div class=max-w-4xl mx-auto px-4
+            span class=inline-block mb-4 text-sm tracking-[0.2em] uppercase font-bold text-gray-500Professional Cosmetology Methodspan
+            h1 class=text-5xl mdtext-7xl font-bold mb-8 text-gray-900 leading-tight
+                תפסיקי לטפל – brspan class=text-[--dusty-pink]תתחילי לייצר שינוי.span
+            h1
+            p class=text-xl mdtext-2xl mb-12 text-gray-700 max-w-2xl mx-auto leading-relaxed font-light
+                גלי את המתודולוגיה המתקדמת שתעניק לך ביטחון מוחלט בקליניקה ותהפוך אותך לאוטוריטה מקצועית עם תוצאות מוכחות.
+            p
+            a href=#purchase class=cta-button inline-block text-white px-12 py-5 rounded-full text-xl font-bold uppercase tracking-wider
+                להרשמה לקורס הדיגיטלי
+            a
+        div
+    header
+
+    !-- 2. About the Instructor --
+    section class=bg-white section-padding
+        div class=max-w-6xl mx-auto grid mdgrid-cols-2 gap-16 items-center
+            div class=relative
+                div class=absolute -top-4 -right-4 w-full h-full border-2 border-[--dusty-pink] rounded-2xl z-0div
+                !-- תמונת מרצה זמנית מאיכות גבוהה --
+                img src=httpsimages.unsplash.comphoto-1594824476967-48c8b964273fauto=format&fit=crop&q=80&w=1974 alt=נינה - המרצה class=relative z-10 rounded-2xl shadow-2xl w-full h-[500px] object-cover
+            div
+            div class=text-right
+                h2 class=text-4xl font-bold mb-8 text-gray-900הפנים שמאחורי השיטהh2
+                div class=space-y-6 text-lg leading-relaxed text-gray-600
+                    p class=font-semibold text-xl text-[--dusty-pink]נעים מאוד, שמי נינה.p
+                    pאחרי שנים של טיפולים באלפי לקוחות בקליניקה הפרטית שלי, הבנתי משהו קריטי הידע התיאורטי שלמדנו בבתי הספר הוא רק הבסיס. הלקוחה של היום מחפשת תוצאה נראית לעין.p
+                    pפיתחתי את השיטה שלי מתוך רצון לתת מענה מדויק לבעיות מורכבות, תוך שילוב בין מדע מתקדם לחוויית טיפול יוקרתית. היום, אני כאן כדי להעניק לך את הכלים הפרקטיים שהפכו את NinaBeauty למותג מבוקש.p
+                div
+                div class=mt-10 flex items-center justify-end gap-4
+                    span class=serif italic text-xlNina Beauty Academyspan
+                    div class=w-12 h-[1px] bg-[--primary-gold]div
+                div
+            div
+        div
+    section
+
+    !-- 4. Before & After Section --
+    section class=bg-[--light-gray] section-padding
+        div class=max-w-5xl mx-auto text-center
+            h2 class=text-4xl font-bold mb-6הוכחה לתוצאותh2
+            p class=text-lg text-gray-500 mb-12מקרים אמיתיים מהקליניקה שטופלו לפי מתודולוגיית NinaBeauty.p
+            
+            div class=grid mdgrid-cols-2 gap-8 items-center
+                div class=flex gap-4 justify-center items-center
+                    div class=text-center w-12
+                        !-- תמונת לפני זמנית --
+                        img src=httpsimages.unsplash.comphoto-1512290923902-8a9f81dc236cauto=format&fit=crop&q=80&w=1000 alt=לפני class=ba-img mb-2
+                        span class=font-bold text-slate-400 uppercase text-smBeforespan
+                    div
+                    div class=text-center w-12
+                        !-- תמונת אחרי זמנית --
+                        img src=httpsimages.unsplash.comphoto-1522335789203-aabd1fc54bc9auto=format&fit=crop&q=80&w=1000 alt=אחרי class=ba-img mb-2 border-2 border-[--dusty-pink]
+                        span class=font-bold text-[--dusty-pink] uppercase text-smAfterspan
+                    div
+                div
+                div class=text-right space-y-4
+                    h3 class=text-2xl font-bold text-gray-800שיפור דרמטי במרקם העורh3
+                    p class=text-gray-600השיטה שלנו מתמקדת בשיקום מחסום העור והחדרת לחות עמוקה. התוצאות נראות לעין כבר מהטיפול הראשון, עם ירידה ניכרת בדלקתיות ושיפור זוהר הפנים.p
+                div
+            div
+        div
+    section
+
+    !-- 7. Call to Action --
+    section id=purchase class=bg-white section-padding text-center
+        div class=max-w-3xl mx-auto
+            h2 class=text-5xl font-bold mb-8 text-[--charcoal-gray]שדרגי את הקריירה שלך עוד היוםh2
+            div class=bg-[--light-gray] p-12 rounded-[3rem] shadow-2xl inline-block w-full max-w-lg border border-gray-100
+                div class=text-lg text-gray-400 line-through mb-2 font-light₪1,200div
+                div class=text-6xl font-bold text-gray-900 mb-4₪590div
+                div class=text-[--dusty-pink] font-bold mb-10 tracking-widest uppercaseSpecial Launch Pricediv
+                button onclick=handlePurchase() class=cta-button w-full text-white py-5 rounded-full text-2xl font-bold shadow-lg uppercase tracking-widest
+                    רכישה מאובטחת עכשיו
+                button
+                p class=text-sm text-gray-400 mt-6 italicגישה מיידית לקורס תישלח ישירות למייל שלךp
+            div
+        div
+    section
+
+    !-- Footer --
+    footer class=bg-[--charcoal-gray] text-white py-12 text-center
+        div class=logo-placeholder text-white mb-4NINAspan class=text-[--dusty-pink]BEAUTYspandiv
+        p class=text-gray-400&copy; 2026 NinaBeauty Academy. All rights reserved.p
+    footer
+
+    script
+        function handlePurchase() {
+            window.location.href = #; 
+        }
+    script
+
+body
+html
