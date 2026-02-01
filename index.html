@@ -4,28 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NinaBeauty | תיק עבודות - דף נחיתה</title>
-    <!-- טעינת Tailwind CSS -->
+    
+    <!-- טעינת Tailwind CSS באמצעות CDN מעודכן -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    <style>
-        /* הגדרות בסיס למקרה ש-Tailwind לא נטען */
+    
+    <script>
+        // הגדרת צבעי מותג עבור Tailwind
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-gold': '#D4AF37',
+                        'dusty-pink': '#E5B5B5',
+                        'charcoal-gray': '#374151',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/css">
+        /* הגדרות בסיס למניעת מצב של טקסט בלבד */
         :root {
             --primary-gold: #D4AF37;
             --dusty-pink: #E5B5B5;
             --charcoal-gray: #374151;
             --light-gray: #F3F4F6;
         }
+        
         body {
             font-family: 'Assistant', sans-serif;
             margin: 0;
             padding: 0;
-            text-align: right;
             direction: rtl;
+            background-color: white;
+            color: #374151;
         }
+
         h1, h2, .serif {
             font-family: 'Playfair Display', serif;
         }
-        /* עיצוב ה-Hero - ודאי שהתמונה נמצאת בתיקייה בגיטהאב */
+
         .hero-section {
             background: linear-gradient(rgba(255, 245, 245, 0.85), rgba(255, 245, 245, 0.85)), 
                         url('ChatGPT Image Feb 1, 2026, 12_41_03 PM.jpg');
@@ -35,40 +56,49 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
         }
+
         .cta-button {
             transition: all 0.3s ease;
-            background-color: var(--charcoal-gray);
-            color: white;
+            background-color: #374151;
+            color: white !important;
             padding: 1.25rem 3rem;
             border-radius: 9999px;
             text-decoration: none;
             display: inline-block;
             font-weight: bold;
         }
+
         .cta-button:hover {
             transform: translateY(-2px);
-            background-color: var(--primary-gold);
+            background-color: #D4AF37;
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
         }
+
         .ba-img {
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             max-width: 100%;
             height: auto;
+            display: block;
         }
+
+        /* הבטחה שהאלמנטים יראו טוב גם אם JS חסום */
+        section { display: block; padding: 5rem 1.5rem; }
+        nav { display: flex; justify-content: center; padding: 1.5rem; background: white; border-bottom: 1px solid #eee; }
     </style>
 </head>
 <body class="bg-white">
 
     <!-- Navigation / Logo -->
-    <nav class="py-6 px-10 flex justify-center bg-white shadow-sm sticky top-0 z-50">
-        <img src="Elegant NinaBeauty logo with golden accents.png" alt="NinaBeauty Logo" class="h-16 md:h-20" onerror="this.style.display='none'; this.after('NINA BEAUTY')">
+    <nav class="sticky top-0 z-50 shadow-sm">
+        <img src="Elegant NinaBeauty logo with golden accents.png" alt="NinaBeauty Logo" class="h-16 md:h-20" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-family:serif; font-size:24px; font-weight:bold; letter-spacing:2px;\'>NINA <span style=\'color:var(--dusty-pink)\'>BEAUTY</span></div>'">
     </nav>
 
     <!-- 1. Hero Section -->
     <header class="hero-section">
-        <div class="max-w-4xl mx-auto px-4 text-center">
+        <div class="max-w-4xl mx-auto px-4">
             <span class="inline-block mb-4 text-sm tracking-[0.2em] uppercase font-bold text-gray-500">Professional Cosmetology Method</span>
             <h1 class="text-5xl md:text-7xl font-bold mb-8 text-gray-900 leading-tight">
                 תפסיקי "לטפל" – <br><span style="color: var(--dusty-pink)">תתחילי לייצר שינוי.</span>
@@ -83,32 +113,32 @@
     </header>
 
     <!-- 2. About Section -->
-    <section class="py-20 px-6 bg-white">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <section class="bg-white">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center text-right">
             <div class="relative">
-                <div class="absolute -top-4 -right-4 w-full h-full border-2 border-[--dusty-pink] rounded-2xl z-0"></div>
+                <div class="absolute -top-4 -right-4 w-full h-full border-2 border-[--dusty-pink] rounded-2xl z-0" style="border-color: var(--dusty-pink);"></div>
                 <img src="ChatGPT Image Feb 1, 2026, 12_46_33 PM.jpg" alt="נינה - המרצה" class="relative z-10 rounded-2xl shadow-2xl w-full object-cover">
             </div>
-            <div class="text-right">
-                <h2 class="text-4xl font-bold mb-8 text-gray-900 italic font-serif">"החזון שלי הוא להעניק לכל קוסמטיקאית את הביטחון להצליח"</h2>
+            <div>
+                <h2 class="text-4xl font-bold mb-8 text-gray-900 italic">"החזון שלי הוא להעניק לכל קוסמטיקאית את הביטחון להצליח"</h2>
                 <p class="text-xl text-gray-600 leading-relaxed mb-6">נעים מאוד, אני נינה. אחרי שנים של ניסיון קליני, פיתחתי שיטה שמשלבת יוקרה עם תוצאות קליניות מוכחות.</p>
-                <div class="w-20 h-1 bg-[--primary-gold]"></div>
+                <div class="w-20 h-1 bg-primary-gold" style="background-color: var(--primary-gold);"></div>
             </div>
         </div>
     </section>
 
     <!-- 3. Before & After Section -->
-    <section class="py-20 px-6 bg-[--light-gray]">
+    <section class="bg-gray-100" style="background-color: var(--light-gray);">
         <div class="max-w-5xl mx-auto text-center">
             <h2 class="text-4xl font-bold mb-12">תוצאות שמדברות בעד עצמן</h2>
             
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="flex gap-4 justify-center items-center">
-                    <div class="text-center w-1/2">
+                    <div class="w-1/2">
                         <img src="Natural beauty with acne details.jpg" alt="לפני" class="ba-img mb-2">
                         <span class="font-bold text-gray-400 text-sm uppercase">לפני</span>
                     </div>
-                    <div class="text-center w-1/2">
+                    <div class="w-1/2">
                         <img src="ChatGPT Image Feb 1, 2026, 12_52_02 PM.jpg" alt="אחרי" class="ba-img mb-2" style="border: 2px solid var(--dusty-pink);">
                         <span style="color: var(--dusty-pink);" class="font-bold text-sm uppercase">אחרי הטיפול</span>
                     </div>
@@ -122,13 +152,13 @@
     </section>
 
     <!-- 4. CTA Section -->
-    <section id="purchase" class="py-20 px-6 bg-white text-center border-t border-gray-100">
+    <section id="purchase" class="bg-white text-center border-t border-gray-100">
         <div class="max-w-3xl mx-auto">
-            <h2 class="text-5xl font-bold mb-12 text-[--charcoal-gray]">שדרגי את הקריירה שלך עוד היום</h2>
+            <h2 class="text-5xl font-bold mb-12 text-gray-800">שדרגי את הקריירה שלך עוד היום</h2>
             <div class="bg-gray-50 p-12 rounded-[3rem] shadow-xl inline-block w-full max-w-lg border border-gray-200">
                 <div class="text-lg text-gray-400 line-through mb-2 font-light">₪1,200</div>
                 <div class="text-6xl font-bold text-gray-900 mb-4">₪590</div>
-                <div class="text-[--dusty-pink] font-bold mb-10 tracking-widest uppercase">Special Launch Price</div>
+                <div class="text-pink-400 font-bold mb-10 tracking-widest uppercase" style="color: var(--dusty-pink);">Special Launch Price</div>
                 <a href="#" class="cta-button w-full text-2xl font-bold shadow-lg">
                     רכישה מאובטחת עכשיו
                 </a>
@@ -136,7 +166,7 @@
         </div>
     </section>
 
-    <footer class="bg-gray-700 text-white py-12 text-center">
+    <footer class="bg-gray-800 text-white py-12 text-center" style="background-color: #374151;">
         <p>&copy; 2026 NinaBeauty Academy. All rights reserved.</p>
     </footer>
 
