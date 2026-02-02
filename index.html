@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NinaBeauty | תיק עבודות - דף נחיתה</title>
+    <title>NinaBeauty Academy | הקורס המקצועי לקוסמטיקאיות</title>
     
-    <!-- טעינת Tailwind CSS באמצעות CDN מעודכן -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     
     <script>
-        // הגדרת צבעי מותג עבור Tailwind
         tailwind.config = {
             theme: {
                 extend: {
@@ -19,156 +17,246 @@
                         'primary-gold': '#D4AF37',
                         'dusty-pink': '#E5B5B5',
                         'charcoal-gray': '#374151',
+                        'soft-nude': '#FAF7F2',
+                    },
+                    fontFamily: {
+                        'sans': ['Assistant', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
                     }
                 }
             }
         }
     </script>
 
-    <style type="text/css">
-        /* הגדרות בסיס למניעת מצב של טקסט בלבד */
-        :root {
-            --primary-gold: #D4AF37;
-            --dusty-pink: #E5B5B5;
-            --charcoal-gray: #374151;
-            --light-gray: #F3F4F6;
-        }
-        
-        body {
-            font-family: 'Assistant', sans-serif;
-            margin: 0;
-            padding: 0;
-            direction: rtl;
-            background-color: white;
-            color: #374151;
-        }
-
-        h1, h2, .serif {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .hero-section {
-            background: linear-gradient(rgba(255, 245, 245, 0.85), rgba(255, 245, 245, 0.85)), 
+    <style>
+        html { scroll-behavior: smooth; }
+        .hero-gradient {
+            background: linear-gradient(rgba(250, 247, 242, 0.9), rgba(250, 247, 242, 0.8)), 
                         url('ChatGPT Image Feb 1, 2026, 12_41_03 PM.jpg');
             background-size: cover;
             background-position: center;
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+            background-attachment: fixed;
         }
-
-        .cta-button {
-            transition: all 0.3s ease;
-            background-color: #374151;
-            color: white !important;
-            padding: 1.25rem 3rem;
-            border-radius: 9999px;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: bold;
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
         }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            background-color: #D4AF37;
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-        }
-
-        .ba-img {
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* הבטחה שהאלמנטים יראו טוב גם אם JS חסום */
-        section { display: block; padding: 5rem 1.5rem; }
-        nav { display: flex; justify-content: center; padding: 1.5rem; background: white; border-bottom: 1px solid #eee; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
-<body class="bg-white">
+<body class="bg-soft-nude text-charcoal-gray">
 
-    <!-- Navigation / Logo -->
-    <nav class="sticky top-0 z-50 shadow-sm">
-        <img src="Elegant NinaBeauty logo with golden accents.png" alt="NinaBeauty Logo" class="h-16 md:h-20" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-family:serif; font-size:24px; font-weight:bold; letter-spacing:2px;\'>NINA <span style=\'color:var(--dusty-pink)\'>BEAUTY</span></div>'">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 shadow-sm py-4 px-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <!-- לוגו - מחפש את הקובץ שלך -->
+                <img src="Elegant NinaBeauty logo with golden accents.png" alt="NinaBeauty Logo" class="h-12 md:h-16 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <span style="display:none" class="font-serif text-2xl font-bold tracking-tighter">NINA <span class="text-dusty-pink text-sm uppercase tracking-widest block -mt-2">Academy</span></span>
+            </a>
+            <div class="hidden md:flex gap-8 font-semibold text-sm uppercase tracking-widest">
+                <a href="#about" class="hover:text-primary-gold transition">אודות</a>
+                <a href="#curriculum" class="hover:text-primary-gold transition">מה נלמד</a>
+                <a href="#results" class="hover:text-primary-gold transition">תוצאות</a>
+                <a href="#purchase" class="text-dusty-pink border-b border-dusty-pink pb-1">הרשמה</a>
+            </div>
+        </div>
     </nav>
 
-    <!-- 1. Hero Section -->
-    <header class="hero-section">
-        <div class="max-w-4xl mx-auto px-4">
-            <span class="inline-block mb-4 text-sm tracking-[0.2em] uppercase font-bold text-gray-500">Professional Cosmetology Method</span>
-            <h1 class="text-5xl md:text-7xl font-bold mb-8 text-gray-900 leading-tight">
-                תפסיקי "לטפל" – <br><span style="color: var(--dusty-pink)">תתחילי לייצר שינוי.</span>
-            </h1>
-            <p class="text-xl md:text-2xl mb-12 text-gray-700 max-w-2xl mx-auto leading-relaxed font-light">
-                גלי את המתודולוגיה המתקדמת שתעניק לך ביטחון מוחלט בקליניקה ותהפוך אותך לאוטוריטה מקצועית עם תוצאות מוכחות.
-            </p>
-            <a href="#purchase" class="cta-button text-xl uppercase tracking-wider">
-                להרשמה לקורס הדיגיטלי
-            </a>
+    <!-- Hero Section -->
+    <header class="hero-gradient min-h-screen flex items-center pt-20">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-right space-y-8">
+                <div class="inline-block px-4 py-1 border border-primary-gold text-primary-gold text-xs tracking-[0.3em] uppercase mb-4">Masterclass 2026</div>
+                <h1 class="text-6xl md:text-8xl font-serif font-bold leading-[1.1] text-gray-900">
+                    השיטה לתוצאות <br><span class="italic text-dusty-pink">נראות לעין.</span>
+                </h1>
+                <p class="text-xl md:text-2xl font-light leading-relaxed max-w-lg">
+                    הפכי מקוסמטיקאית מטפלת לאוטוריטה מקצועית. הקורס שמעניק לך את הידע הקליני והביטחון העסקי לייצר שינוי אמיתי אצל הלקוחות שלך.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#purchase" class="bg-charcoal-gray text-white px-10 py-5 rounded-full font-bold text-center hover:bg-primary-gold transition shadow-xl">להרשמה מיידית</a>
+                    <a href="#about" class="border border-charcoal-gray px-10 py-5 rounded-full font-bold text-center hover:bg-white transition">מי אני?</a>
+                </div>
+            </div>
+            <div class="relative hidden md:block">
+                <div class="absolute -inset-4 border-2 border-primary-gold rounded-full rotate-3 opacity-20"></div>
+                <img src="ChatGPT Image Feb 1, 2026, 12_41_03 PM.jpg" alt="[תמונה של טיפול פנים יוקרתי]" class="rounded-full w-[500px] h-[500px] object-cover shadow-2xl relative z-10">
+            </div>
         </div>
     </header>
 
-    <!-- 2. About Section -->
-    <section class="bg-white">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center text-right">
+    <!-- Stat Bar -->
+    <section class="bg-white py-12 border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div><div class="text-3xl font-serif font-bold text-primary-gold">500+</div><div class="text-xs uppercase tracking-widest text-gray-400">תלמידות שהצליחו</div></div>
+            <div><div class="text-3xl font-serif font-bold text-primary-gold">12</div><div class="text-xs uppercase tracking-widest text-gray-400">מודולים של ידע</div></div>
+            <div><div class="text-3xl font-serif font-bold text-primary-gold">24/7</div><div class="text-xs uppercase tracking-widest text-gray-400">גישה לכל החיים</div></div>
+            <div><div class="text-3xl font-serif font-bold text-primary-gold">100%</div><div class="text-xs uppercase tracking-widest text-gray-400">ביטחון מקצועי</div></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
             <div class="relative">
-                <div class="absolute -top-4 -right-4 w-full h-full border-2 border-[--dusty-pink] rounded-2xl z-0" style="border-color: var(--dusty-pink);"></div>
-                <img src="ChatGPT Image Feb 1, 2026, 12_46_33 PM.jpg" alt="נינה - המרצה" class="relative z-10 rounded-2xl shadow-2xl w-full object-cover">
+                <img src="ChatGPT Image Feb 1, 2026, 12_46_33 PM.jpg" alt="[תמונה של נינה]" class="rounded-2xl shadow-2xl w-full h-[600px] object-cover relative z-10">
+                <div class="absolute -bottom-10 -left-10 bg-dusty-pink p-12 rounded-2xl hidden md:block z-20 shadow-xl">
+                    <p class="text-white font-serif italic text-2xl">"העור שלך הוא <br>כרטיס הביקור שלי"</p>
+                </div>
             </div>
-            <div>
-                <h2 class="text-4xl font-bold mb-8 text-gray-900 italic">"החזון שלי הוא להעניק לכל קוסמטיקאית את הביטחון להצליח"</h2>
-                <p class="text-xl text-gray-600 leading-relaxed mb-6">נעים מאוד, אני נינה. אחרי שנים של ניסיון קליני, פיתחתי שיטה שמשלבת יוקרה עם תוצאות קליניות מוכחות.</p>
-                <div class="w-20 h-1 bg-primary-gold" style="background-color: var(--primary-gold);"></div>
+            <div class="text-right space-y-6">
+                <h2 class="text-4xl font-serif font-bold">הפנים שמאחורי השיטה</h2>
+                <div class="w-20 h-1 bg-primary-gold"></div>
+                <p class="text-lg leading-relaxed text-gray-600">
+                    נעים מאוד, אני נינה. אחרי שנים בקליניקה, הבנתי שקוסמטיקאיות רבות מרגישות "אבודות" מול מצבי עור מורכבים. הן יודעות לבצע טיפול, אבל לא תמיד מבינות את ה*למה*.
+                </p>
+                <p class="text-lg leading-relaxed text-gray-600 font-semibold">
+                    השיטה שפיתחתי לא רק מעניקה לך "פרוטוקול", אלא מלמדת אותך לחשוב כמו מומחית, לאבחן במדויק ולהשיג תוצאות שגורמות ללקוחות לחזור שוב ושוב.
+                </p>
+                <img src="Elegant NinaBeauty logo with golden accents.png" class="h-12 opacity-50 mt-8" alt="Nina Logo Footer">
             </div>
         </div>
     </section>
 
-    <!-- 3. Before & After Section -->
-    <section class="bg-gray-100" style="background-color: var(--light-gray);">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-12">תוצאות שמדברות בעד עצמן</h2>
-            
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="flex gap-4 justify-center items-center">
-                    <div class="w-1/2">
-                        <img src="Natural beauty with acne details.jpg" alt="לפני" class="ba-img mb-2">
-                        <span class="font-bold text-gray-400 text-sm uppercase">לפני</span>
-                    </div>
-                    <div class="w-1/2">
-                        <img src="ChatGPT Image Feb 1, 2026, 12_52_02 PM.jpg" alt="אחרי" class="ba-img mb-2" style="border: 2px solid var(--dusty-pink);">
-                        <span style="color: var(--dusty-pink);" class="font-bold text-sm uppercase">אחרי הטיפול</span>
-                    </div>
+    <!-- Curriculum / What's Inside -->
+    <section id="curriculum" class="py-24 bg-white px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 space-y-4">
+                <h2 class="text-4xl font-serif font-bold italic text-dusty-pink underline decoration-primary-gold/30 underline-offset-8">מה מחכה לך בקורס?</h2>
+                <p class="text-gray-500 uppercase tracking-widest text-sm">המסלול המלא להצלחה קלינית</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="p-10 border border-gray-100 rounded-3xl hover:border-primary-gold transition group">
+                    <div class="text-4xl mb-6 grayscale group-hover:grayscale-0 transition">🔬</div>
+                    <h3 class="text-xl font-bold mb-4">מדע העור המעשי</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">הבנה מעמיקה של מבנה העור, מחסום העור ואיך חומרים פעילים באמת חודרים פנימה.</p>
                 </div>
-                <div class="text-right space-y-4">
-                    <h3 class="text-2xl font-bold text-gray-800">שיפור דרמטי במרקם העור</h3>
-                    <p class="text-gray-600 text-lg">השיטה שלנו מתמקדת בשיקום מחסום העור והחדרת לחות עמוקה. התוצאות נראות לעין כבר מהטיפול הראשון.</p>
+                <!-- Card 2 -->
+                <div class="p-10 border border-gray-100 rounded-3xl hover:border-primary-gold transition group">
+                    <div class="text-4xl mb-6 grayscale group-hover:grayscale-0 transition">🧪</div>
+                    <h3 class="text-xl font-bold mb-4">פרוטוקולים מתקדמים</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">טיפול באקנה, פיגמנטציה ואנטי-אייג'ינג בשיטות חדשניות המשלבות מכשור וחומרים.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="p-10 border border-gray-100 rounded-3xl hover:border-primary-gold transition group">
+                    <div class="text-4xl mb-6 grayscale group-hover:grayscale-0 transition">💼</div>
+                    <h3 class="text-xl font-bold mb-4">שיווק ומכירות לקליניקה</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">איך למכור מוצרים נלווים בלי "למכור", איך לבנות תפריט טיפולים רווחי וניהול לקוחות VIP.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. CTA Section -->
-    <section id="purchase" class="bg-white text-center border-t border-gray-100">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-5xl font-bold mb-12 text-gray-800">שדרגי את הקריירה שלך עוד היום</h2>
-            <div class="bg-gray-50 p-12 rounded-[3rem] shadow-xl inline-block w-full max-w-lg border border-gray-200">
-                <div class="text-lg text-gray-400 line-through mb-2 font-light">₪1,200</div>
-                <div class="text-6xl font-bold text-gray-900 mb-4">₪590</div>
-                <div class="text-pink-400 font-bold mb-10 tracking-widest uppercase" style="color: var(--dusty-pink);">Special Launch Price</div>
-                <a href="#" class="cta-button w-full text-2xl font-bold shadow-lg">
-                    רכישה מאובטחת עכשיו
+    <!-- Before & After Section -->
+    <section id="results" class="py-24 bg-soft-nude px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-serif font-bold text-center mb-16">תוצאות שאי אפשר להתווכח איתן</h2>
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="flex gap-4">
+                    <div class="w-1/2 space-y-2">
+                        <img src="Natural beauty with acne details.jpg" alt="[לפני]" class="rounded-xl shadow-lg h-80 object-cover w-full">
+                        <div class="text-xs font-bold text-center text-gray-400 uppercase tracking-widest">Day 1: Inflamed</div>
+                    </div>
+                    <div class="w-1/2 space-y-2">
+                        <img src="ChatGPT Image Feb 1, 2026, 12_52_02 PM.jpg" alt="[אחרי]" class="rounded-xl shadow-lg h-80 object-cover w-full border-2 border-dusty-pink">
+                        <div class="text-xs font-bold text-center text-dusty-pink uppercase tracking-widest">Day 45: Healed</div>
+                    </div>
+                </div>
+                <div class="text-right space-y-6">
+                    <h3 class="text-2xl font-bold italic font-serif">שיקום מחסום העור</h3>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        במקרה זה, הלקוחה סבלה מדלקתיות כרונית. באמצעות שילוב נכון של ניקוי עדין ושימוש בחומצות שומן ופפטידים לפי שיטת NinaBeauty, הצלחנו להשיב לעור את המראה הבריא והחיוני שלו.
+                    </p>
+                    <ul class="space-y-2 text-sm font-semibold">
+                        <li class="flex items-center gap-2 justify-end">ירידה של 80% בדלקתיות <span class="text-primary-gold">✓</span></li>
+                        <li class="flex items-center gap-2 justify-end">שיפור בטקסטורת העור <span class="text-primary-gold">✓</span></li>
+                        <li class="flex items-center gap-2 justify-end">חזרה של הביטחון העצמי <span class="text-primary-gold">✓</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Pricing -->
+    <section id="purchase" class="py-24 px-6 bg-charcoal-gray text-white">
+        <div class="max-w-4xl mx-auto text-center space-y-12">
+            <h2 class="text-5xl font-serif font-bold">מוכנה לשלב הבא בקריירה שלך?</h2>
+            <div class="glass-card p-12 rounded-[4rem] text-charcoal-gray inline-block w-full max-w-2xl">
+                <div class="text-gray-400 line-through text-2xl mb-2">₪1,800</div>
+                <div class="text-7xl font-bold text-gray-900 mb-4">₪990</div>
+                <p class="text-dusty-pink font-bold tracking-[0.3em] uppercase mb-10">הצעה מוגבלת לזמן ההשקה</p>
+                
+                <div class="text-right space-y-4 mb-10 max-w-md mx-auto">
+                    <div class="flex items-center gap-3 justify-end"><span class="text-sm">גישה ל-12 מודולים מוקלטים</span> <span class="text-primary-gold">⭐</span></div>
+                    <div class="flex items-center gap-3 justify-end"><span class="text-sm">קבוצת ליווי סגורה בוואטסאפ</span> <span class="text-primary-gold">⭐</span></div>
+                    <div class="flex items-center gap-3 justify-end"><span class="text-sm">ערכת פרוטוקולים להורדה</span> <span class="text-primary-gold">⭐</span></div>
+                    <div class="flex items-center gap-3 justify-end"><span class="text-sm">תעודת הסמכה מ-Nina Academy</span> <span class="text-primary-gold">⭐</span></div>
+                </div>
+
+                <a href="#" class="block bg-charcoal-gray text-white py-6 rounded-full text-2xl font-bold shadow-2xl hover:bg-primary-gold transition uppercase tracking-widest">
+                    אני רוצה להצטרף עכשיו
                 </a>
+                <p class="mt-6 text-xs text-gray-400">רכישה מאובטחת SSL | החזר כספי מלא תוך 14 יום</p>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-800 text-white py-12 text-center" style="background-color: #374151;">
-        <p>&copy; 2026 NinaBeauty Academy. All rights reserved.</p>
+    <!-- FAQ Section -->
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-serif font-bold text-center mb-12 italic">שאלות נפוצות</h2>
+            <div class="space-y-6 text-right">
+                <div class="border-b border-gray-100 pb-4">
+                    <h4 class="font-bold mb-2">האם הקורס מתאים גם למתחילות?</h4>
+                    <p class="text-gray-500 text-sm">בהחלט. אנחנו מתחילים מהיסודות ומגיעים לרמות הכי מתקדמות של הקוסמטיקה הקלינית.</p>
+                </div>
+                <div class="border-b border-gray-100 pb-4">
+                    <h4 class="font-bold mb-2">לכמה זמן הקורס פתוח?</h4>
+                    <p class="text-gray-500 text-sm">הגישה לקורס היא לכל החיים, כולל כל העדכונים העתידיים שאוסיף.</p>
+                </div>
+                <div class="border-b border-gray-100 pb-4">
+                    <h4 class="font-bold mb-2">האם מקבלים תעודה?</h4>
+                    <p class="text-gray-500 text-sm">כן, בסיום כל המטלות בקורס תקבלי תעודת הסמכה דיגיטלית של NinaBeauty Academy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-soft-nude py-16 px-6 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-right">
+                <div class="font-serif text-2xl font-bold mb-2">NINA BEAUTY</div>
+                <p class="text-xs text-gray-400 tracking-widest uppercase">The Science of Aesthetics</p>
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-white transition opacity-50">IG</a>
+                <a href="#" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-white transition opacity-50">FB</a>
+                <a href="#" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-white transition opacity-50">WA</a>
+            </div>
+            <p class="text-xs text-gray-400 font-light italic">&copy; 2026 NinaBeauty Academy. All rights reserved.</p>
+        </div>
     </footer>
+
+    <script>
+        // אנימציית הופעה בגלילה
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveals[i].getBoundingClientRect().top;
+                var revealPoint = 150;
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
